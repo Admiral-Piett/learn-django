@@ -1,0 +1,15 @@
+<h1>This is the Count Page</h1>
+
+<p>You have {{ count }} words</p>
+
+<h1>Full Text:</h1>
+
+{{ full_text }}
+<br/>
+<h1>Word Count:</h1>
+{% for word, total in sorted_word_dict %}
+    {{ word }} - {{ total }}
+    <br/>
+{% endfor %}
+
+<br/>

@@ -1,0 +1,9 @@
+{% extends 'blog/allblogs.html' %}
+
+{% block blog_list %}
+
+<h3>{{ detail_blog.name }}</h3>
+<p><b>Created At:</b> {{ detail_blog.pub_date }}</p>
+<p>{{ detail_blog.text }}</p>
+
+{% endblock %}

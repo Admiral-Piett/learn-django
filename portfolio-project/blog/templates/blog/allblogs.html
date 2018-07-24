@@ -1,0 +1,38 @@
+{% extends 'jobs/index.html' %}
+
+{% load staticfiles %}
+
+{% block nav %}
+  <a class="nav-item nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+  <a class="nav-item nav-link" href="{% static '8 Code of Ethics_2012.pdf' %}">Resume</a>
+  <a class="nav-item nav-link active" href="{% url 'blog_index' %}">Blog</a>
+{% endblock %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center pt-3">Blog</h1>
+        <br/>
+        <br/>
+    {% block blog_list %}
+    <h2>Posts</h2>
+        <hr/>
+    {% for blog in blogs.all %}
+        <div class="col">
+            <img class="img-fluid" src="{{ blog.image.url }}" alt="Card image cap">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <a href="{% url 'detail' blog.id %}"><h4>{{ blog.name }}</h4></a>
+                    <br/>
+                    <p><b>Created At:</b> {{ blog.pub_date }}</p>
+                    <p><b>Text:</b></p>
+                    <p>{{ blog.summary }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% endblock %}
+</div>
+{% endblock %}
